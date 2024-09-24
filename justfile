@@ -1,5 +1,5 @@
 default:
-  @just list
+  @just --list
 
 build:
   docker buildx build -t manifoldlabs/hub-tx-monitor --platform linux/amd64 -f Dockerfile .
