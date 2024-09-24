@@ -67,7 +67,6 @@ const main = async () => {
           continue;
         }
         const owedCredits = (rao / 1e9) * price * CREDIT_PER_DOLLAR;
-        console.log(owedCredits)
         await db.transaction(async (tx) => {
           await tx.execute(
             `
