@@ -3,12 +3,11 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    DISCORD_URL: z.string(),
     BITTENSOR_NODE_URL: z.string(),
-    COLDKEYS: z.string(),
-    WARNING_TRANSFER_THRESHOLD: z.string().optional(),
-    WARNING_BALANCE_THRESHOLD: z.string().optional(),
-    WARNING_ONLY: z.string().optional()
+    DATABASE_HOST: z.string(),
+    DATABASE_USERNAME: z.string(),
+    DATABASE_PASSWORD: z.string(),
+    DEPOSIT_ADDRESS: z.string(),
   },
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,
