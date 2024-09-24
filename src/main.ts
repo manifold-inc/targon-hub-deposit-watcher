@@ -60,7 +60,7 @@ const main = async () => {
         if (!price) {
           await db.execute(
             `
-          INSERT INTO tao_transfers (userId, rao, block_hash, tx_hash, success) 
+          INSERT INTO tao_transfers (user_id, rao, block_hash, tx_hash, success) 
                              VALUES (?,      ?,   ?,          ?,       ?)`,
             [id, rao, currentChainBlockHash, e.hash.toHex(), false],
           );
@@ -75,7 +75,7 @@ const main = async () => {
           );
           await tx.execute(
             `
-          INSERT INTO tao_transfers (userId, rao, block_hash, tx_hash, success, priced_at, credits) 
+          INSERT INTO tao_transfers (user_id, rao, block_hash, tx_hash, success, priced_at, credits) 
                              VALUES (?,      ?,   ?,          ?,       ?,       ?,         ?)`,
             [
               id,
