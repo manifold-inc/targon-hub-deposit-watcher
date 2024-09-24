@@ -43,8 +43,8 @@ const main = async () => {
       const tao = (rao / 1e9).toLocaleString();
       const from = _from.toString();
       const to = _to.toString();
-      if (to.toString() != DEPOSIT_ADDRESS) continue;
-      log.info(`From\n\`${from}\`\nTo\n\`${to}\`\n${tao}t`);
+      if (to != DEPOSIT_ADDRESS) continue;
+      log.info(`From ${from} To ${to} ${tao}t`);
       try {
         const { rows } = await db.execute(
           "SELECT id, credits FROM user WHERE ss58 = ?",
@@ -67,6 +67,7 @@ const main = async () => {
           continue;
         }
         const owedCredits = (rao / 1e9) * price * CREDIT_PER_DOLLAR;
+        console.log(owedCredits)
         await db.transaction(async (tx) => {
           await tx.execute(
             `

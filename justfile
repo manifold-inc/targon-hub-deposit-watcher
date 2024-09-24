@@ -2,10 +2,7 @@ default:
   @just --list
 
 build:
-  docker buildx build -t manifoldlabs/hub-tx-monitor --platform linux/amd64 -f Dockerfile .
+  docker compose build
 
-run: build
-  docker run -t -d --env-file .env manifoldlabs/hub-tx-monitor
-
-push: build
-  docker push manifoldlabs/hub-tx-monitor
+up: build
+  docker compose up -d
